@@ -26,7 +26,7 @@ public class PokemonDAO {
         ArrayList<Pokemon> lista = new ArrayList();
         
         // Guardo la consulta SQL realizar en una cadena
-        String sql = (criterio)?"select * from Jugadores order by Votos desc":"select * from Jugadores order by Nombre";
+        String sql = (criterio)?"select * from pokemons order by nombre desc":"select * from pokemons order by entrenador";
   
         Conexion conexion = new Conexion();
         
