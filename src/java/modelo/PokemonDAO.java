@@ -41,7 +41,7 @@ public class PokemonDAO {
                 Pokemon p = new Pokemon();
                 // Recogemos los datos del turismo, guardamos en un objeto
                 p.setNombre(res.getString("nombre"));
-                p.setEntrenador(res.getInt("entrenador"));
+                p.setEntrenador(res.getString("entrenador"));
 
                 //Añadimos el objeto al array
                 lista.add(p);
@@ -60,7 +60,7 @@ public class PokemonDAO {
         return lista;  
     }
     
-    public static int insertarPokemon(String nombre, String tipo){
+    public static int insertarPokemon(String nombre, String entrenador){
         
         // Cadena con la consulta parametrizada
         String sql = "insert into pokemons values (?,?)";
