@@ -1,0 +1,65 @@
+  *{
+    font-family: sans-serif;
+  }
+  html,body{
+    margin:0;
+    padding:0;
+  }
+  h1{
+    text-align: center;
+    width:100%;
+    background-color:black;
+    color:white;
+    padding:1rem;
+  }
+  h3{
+    width:100%;
+    text-align: center;
+  }
+  body{
+    display: flex;
+    flex-flow: column;
+  }
+  span{
+    margin-bottom:0.2rem;
+  }
+  #entranadoresZone, #pokemonZone{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    border-radius: 5px;
+    padding:1rem;
+  }
+  #entranadoresZone{
+    background-color:#FFC2C2;
+  }
+  #pokemonZone{
+    background-color:#C2F0FF;
+  }
+
+  #listadoEntrenadores, #listadoPokemons{
+    display: flex;
+    flex-flow: column;
+    margin-right:3rem;
+  }
+  button{
+    border-radius: 3px;
+    border:1px solid gray;
+    margin-right:0.5rem;
+  }
+  input{
+    border-radius: 3px;
+    border:1px solid gray;
+  }
+  #listadoEntrenadores p{
+    font-weight: bold;
+  }
+  #listadoPokemons p{
+    font-weight: bold;
+  }
+  #insertarEntrenadores > p{
+    font-weight: bold;
+  }
+  #insertarPokemons > p{
+    font-weight: bold;
+  }
