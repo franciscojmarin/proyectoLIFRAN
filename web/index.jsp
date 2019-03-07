@@ -31,7 +31,7 @@
                     // Lista ordenada por entrenadores, de mayor a menor
                     ArrayList<Entrenador> listaE = EntrenadorDAO.consultarEntrenadores(true);
                     for (Entrenador e : listaE) {
-                           out.print("<span><button type='button' name='borrar' value='"+e.getNombre()+"'>Borrar</button>"+e.getNombre()+"</span>");
+                           out.print("<span><input type='submit' name='borrar' value='"+e.getNombre()+"'>Borrar</button>"+e.getNombre()+"</span>");
                         }
                 %>
             </form>
