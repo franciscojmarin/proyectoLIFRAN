@@ -32,7 +32,7 @@
                 // Lista ordenada por entrenadores, de mayor a menor
                 ArrayList<Entrenador> listaE = EntrenadorDAO.consultarEntrenadores(true);
                 for (Entrenador e : listaE) {
-                       out.print("<p><button type='button' value='"+e.getNombre()+"'>Borrar</button>"+e.getNombre()+"'</p>");
+                       out.print("<p><button type='button' name='"+e.getNombre()+"' value='"+e.getNombre()+"'>Borrar</button>"+e.getNombre()+"</p>");
                     }
             %>
         </div>
@@ -46,7 +46,7 @@
                     <option value="mano">Malo</option>
                 </select>
 
-            <p> <input type="submit" name="buttonSubmit" value="insertarEntrenador"> 
+            <p> <input type="submit" name="buttonSubmit" value="insertar Entrenador"> 
             <input type="reset" name="buttonReset" value="Reset"> </p>
         </form>
     </div>
@@ -55,12 +55,12 @@
         <h3>POKEMONS</h3>
         
         <div id="listadoPokemons">
-        <p>Lista de Entrenadores registrados</p>
+        <p>Lista de Pokemons registrados</p>
             <%
                 // Lista ordenada por entrenadores, de mayor a menor
                 ArrayList<Pokemon> listaP = PokemonDAO.consultarPokemons(true);
                 for (Pokemon p : listaP) {
-                       out.print("<p><button type='button' value='"+p.getNombre()+"'>Borrar</button>"+p.getNombre()+"'</p>");
+                       out.print("<p><button name='"+p.getNombre()+"' type='button' value='"+p.getNombre()+"'>Borrar</button>"+p.getNombre()+"'</p>");
                     }
             %>
         </div>
@@ -81,7 +81,7 @@
                         }
                 %>
                 </select>
-            <p> <input type="submit" name="buttonSubmit" value="insertarPokemon"> 
+            <p> <input type="submit" name="buttonSubmit" value="insertar Pokemon"> 
             <input type="reset" name="buttonReset" value="Reset"> </p>
         </form>
     </div>
