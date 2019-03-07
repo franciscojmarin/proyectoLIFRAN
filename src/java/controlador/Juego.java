@@ -79,7 +79,7 @@ public class Juego extends HttpServlet {
         lista.forEach(System.out::println);
 
         // Una vez realizada la operación, redirigimos a la vista
-        response.sendRedirect(response.encodeRedirectURL("TablaVotos.jsp"));
+        response.sendRedirect(response.encodeRedirectURL("index.jsp"));
 
     }
 
