@@ -28,6 +28,7 @@
         
         <div id="listadoEntrenadores">
         <p>Lista de Entrenadores registrados</p>
+        <form action="./Juego" method="POST">
             <%
                 // Lista ordenada por entrenadores, de mayor a menor
                 ArrayList<Entrenador> listaE = EntrenadorDAO.consultarEntrenadores(true);
@@ -35,6 +36,7 @@
                        out.print("<p><button type='button' name='"+e.getNombre()+"' value='"+e.getNombre()+"'>Borrar</button>"+e.getNombre()+"</p>");
                     }
             %>
+        </form>
         </div>
         <p>Insertar Entrenador</p>
 
@@ -56,6 +58,7 @@
         
         <div id="listadoPokemons">
         <p>Lista de Pokemons registrados</p>
+        <form action="./Juego" method="POST">
             <%
                 // Lista ordenada por entrenadores, de mayor a menor
                 ArrayList<Pokemon> listaP = PokemonDAO.consultarPokemons(true);
@@ -63,6 +66,7 @@
                        out.print("<p><button name='"+p.getNombre()+"' type='button' value='"+p.getNombre()+"'>Borrar</button>"+p.getNombre()+"'</p>");
                     }
             %>
+        </form>
         </div>
         
         
