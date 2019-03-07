@@ -131,7 +131,7 @@ public class EntrenadorDAO {
         }
     }
     
-    public static int actualizarJugador(String nombre, String tipo){
+    public static int actualizarEntrenador(String nombre, String tipo){
         // Cadena con la consulta 
         String sql = "update entrenadores set tipo = '" + tipo + "' where nombre like '" + nombre + "'";
         Conexion conexion = new Conexion();
