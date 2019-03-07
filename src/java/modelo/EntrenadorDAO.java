@@ -59,6 +59,41 @@ public class EntrenadorDAO {
         return lista;  
     }
     
+     public static int eliminarEntrenador(String nombre){
+        
+        // Cadena con la consulta parametrizada
+        String sql = "delete from entrenadores where name = "+nombre;
+
+        Conexion conexion = new Conexion();
+        
+        PreparedStatement prest;
+
+        try { 
+            // Preparamos la inserción de datos  mediante un PreparedStatement
+            prest = conexion.getConexion().prepareStatement(sql);
+
+            // Procedemos a indicar los valores que queremos insertar
+            // Usamos los métodos setXXX(indice, valor)
+            // indice indica la posicion del argumento ?, empieza en 1
+            // valor es el dato que queremos insertar
+            prest.setString(1, nombre);
+
+            // Ejecutamos la sentencia de inserción preparada anteriormente
+            int nfilas = prest.executeUpdate();
+    
+            // Cerramos el recurso PreparedStatement 
+            prest.close();
+            
+            // Cerramos la conexión 
+            conexion.cerrarConexion();
+            // La inserción se realizó con éxito, devolvemos filas afectadas
+            return nfilas;
+        } catch (SQLException e) {
+            System.out.println("Problemas durante la eliminación del Entrenador");
+            System.out.println(e);
+            return -1;
+        }
+    }
     public static int insertarEntrenador(String nombre, String tipo){
         
         // Cadena con la consulta parametrizada
