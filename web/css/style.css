@@ -20,6 +20,15 @@
     display: flex;
     flex-flow: column;
   }
+  #listadoEntrenadores form{
+          display: flex;
+          flex-flow: column;
+  }
+  #listadoPokemons form{
+          display: flex;
+          flex-flow: column;
+  }
+  
   span{
     margin-bottom:0.2rem;
   }
@@ -29,6 +38,7 @@
     justify-content: center;
     border-radius: 5px;
     padding:1rem;
+    margin:2rem;
   }
   #entranadoresZone{
     background-color:#FFC2C2;
