@@ -46,11 +46,12 @@ public class Juego extends HttpServlet {
         // Asigno también el tipo de entrenador
         String tipoEntrenador = request.getParameter("entrenadorTipo");
         
+        
+        
         //Vamos a comprobar si hay información en el botón
-        
-        
         String botonBorrar = request.getParameter("borrar");
-        sesion.setAttribute("botonBorrar", botonBorrar);
+        EntrenadorDAO.eliminarEntrenador(botonBorrar);
+        
         
         // Si el visitante ha elegido "otros", hay que obtener el valor de la caja de texto
         /*if(!botonBorrar.equals("")){

@@ -28,11 +28,15 @@
           display: flex;
           flex-flow: column;
   }
+  #listadoEntrenadoresBorrar form{
+          display: flex;
+          flex-flow: column;
+  }
   
   span{
     margin-bottom:0.2rem;
   }
-  #entranadoresZone, #pokemonZone{
+  #entranadoresZone, #pokemonZone, #borrarZone{
     display: flex;
     flex-flow: row;
     justify-content: center;
@@ -45,6 +49,9 @@
   }
   #pokemonZone{
     background-color:#C2F0FF;
+  }
+  #borrarZone{
+    background-color:#C2F0FF;  
   }
 
   #listadoEntrenadores, #listadoPokemons{

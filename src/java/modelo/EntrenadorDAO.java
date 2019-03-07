@@ -62,28 +62,18 @@ public class EntrenadorDAO {
      public static int eliminarEntrenador(String nombre){
         
         // Cadena con la consulta parametrizada
-        String sql = "delete from entrenadores where name = "+nombre;
-
+        String sql = "delete from entrenadores where nombre like '" + nombre + "'";
         Conexion conexion = new Conexion();
-        
-        PreparedStatement prest;
 
         try { 
-            // Preparamos la inserción de datos  mediante un PreparedStatement
-            prest = conexion.getConexion().prepareStatement(sql);
-
-            // Procedemos a indicar los valores que queremos insertar
-            // Usamos los métodos setXXX(indice, valor)
-            // indice indica la posicion del argumento ?, empieza en 1
-            // valor es el dato que queremos insertar
-            prest.setString(1, nombre);
-
-            // Ejecutamos la sentencia de inserción preparada anteriormente
-            int nfilas = prest.executeUpdate();
-    
-            // Cerramos el recurso PreparedStatement 
-            prest.close();
-            
+            int nfilas;
+            // Ejecutamos la sentencia de modificación
+            //try-with-resources
+            try (Statement prest = conexion.getConexion().createStatement()) {
+                // Ejecutamos la sentencia de modificación
+                nfilas = prest.executeUpdate(sql);
+                // Cerramos el recurso PreparedStatement
+            }
             // Cerramos la conexión 
             conexion.cerrarConexion();
             // La inserción se realizó con éxito, devolvemos filas afectadas

@@ -20,7 +20,7 @@
         <link href="./css/style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        ${sessionScope['botonBorrar']}
+       
     <h1>Gimnasio POKEMON</h1>
     <h3>ENTRENADORES</h3>
     <div id="entranadoresZone">
@@ -31,7 +31,7 @@
                     // Lista ordenada por entrenadores, de mayor a menor
                     ArrayList<Entrenador> listaE = EntrenadorDAO.consultarEntrenadores(true);
                     for (Entrenador e : listaE) {
-                           out.print("<span><input type='submit' name='borrar' value='"+e.getNombre()+"'>Borrar</button>"+e.getNombre()+"</span>");
+                           out.print("<span>"+e.getNombre()+"</span>");
                         }
                 %>
             </form>
@@ -86,6 +86,22 @@
                 <input type="reset" name="buttonReset" value="Reset"> </p>
             </form>
         </div>
+    </div>
+                    
+    <h3>BORRAR</h3>
+    <div id="borrarZone">
+        <div id="listadoEntrenadoresBorrar">
+            <p>Pulsa el botón de algún entrenador para borrarlo</p>
+            <form action="./Juego" method="POST">
+                <%
+                    // Lista ordenada por entrenadores, de mayor a menor
+                    ArrayList<Entrenador> listaEn = EntrenadorDAO.consultarEntrenadores(true);
+                    for (Entrenador e : listaEn) {
+                           out.print("<span><input type='submit' name='borrar' value='"+e.getNombre()+"'></span>");
+                        }
+                %>
+            </form>
+        </div>        
     </div>
             
     </body>
