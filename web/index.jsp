@@ -62,7 +62,7 @@
                     // Lista ordenada por entrenadores, de mayor a menor
                     ArrayList<Pokemon> listaP = PokemonDAO.consultarPokemons(true);
                     for (Pokemon p : listaP) {
-                           out.print("<span><input type='submit' name='borrarp' value='"+p.getNombre()+"'></span>");
+                           out.print("<span><input type='submit' name='borrarp' value='"+p.getNombre()+" - "+p.getEntrenador()+"'></span>");
                         }
                 %>
             </form>
