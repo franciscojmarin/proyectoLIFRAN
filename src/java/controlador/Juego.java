@@ -42,6 +42,8 @@ public class Juego extends HttpServlet {
         
         // Guardo el nombre del entrenador a insertar en un String
         String nombreEntrenador = request.getParameter("entrenadorNombre");
+        String nombrePokemon = request.getParameter("pokemonNombre");
+        String pokemonEntrenador = request.getParameter("pokemonEntrenador");
         
         // Asigno también el tipo de entrenador
         String tipoEntrenador = request.getParameter("entrenadorTipo");
@@ -51,6 +53,9 @@ public class Juego extends HttpServlet {
         //Vamos a comprobar si hay información en el botón
         String botonBorrar = request.getParameter("borrar");
         EntrenadorDAO.eliminarEntrenador(botonBorrar);
+        
+        String botonBorrarP = request.getParameter("borrarp");
+        PokemonDAO.eliminarPokemon(botonBorrarP);
         
         
         // Si el visitante ha elegido "otros", hay que obtener el valor de la caja de texto
@@ -83,9 +88,25 @@ public class Juego extends HttpServlet {
             // hay que insertarlo con su tipo
             EntrenadorDAO.insertarEntrenador(nombreEntrenador, tipoEntrenador);
         }
+        
+        ArrayList<Pokemon> listap = PokemonDAO.consultarPokemons(false);
+        
+        // En este punto miramos si el entrenador existe en la lista o no
+        // Si existe, habría que reenviar a una página de error
+        // Si no existe, hay que insertarlo con su Tipo - INSERT       
+        
+        if (buscarPokemon(listap, nombrePokemon)){
+            // Mandar a página error entrenador ya existe - botón volver
+            PokemonDAO.actualizarPokemon(nombrePokemon, nombreEntrenador);
+        }else{
+            // Como no existe el entrenador en la base de datos,
+            // hay que insertarlo con su tipo
+            PokemonDAO.insertarPokemon(nombrePokemon, pokemonEntrenador);
+        }
 
-        // Obtengo la lista actualizada de jugadores, ordenada por votos
+        // Obtengo la lista actualizada de entrenadores y pokemons
         lista = EntrenadorDAO.consultarEntrenadores(true);
+        listap = PokemonDAO.consultarPokemons(true);
 
         // Expresión lambda para imprimir los elementos de la lista
         lista.forEach(System.out::println);
@@ -115,9 +136,9 @@ public class Juego extends HttpServlet {
         return lista.stream().anyMatch((entrenador) -> (entrenador.getNombre().equals(nombre)));
     }
     
-    private static boolean buscarPokemon (ArrayList<Pokemon> listau, String email){
+    private static boolean buscarPokemon (ArrayList<Pokemon> listap, String email){
         // Ejemplo de uso de expresiones lambda y API Stream de Java 8
-        return listau.stream().anyMatch((pokemon) -> (pokemon.getNombre().equals(email)));
+        return listap.stream().anyMatch((pokemon) -> (pokemon.getNombre().equals(email)));
     }
     
 }
